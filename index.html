@@ -4,136 +4,621 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Softwerkskammer Rhein-Main</title>
-  <meta name="description" content="Offizielle Seite der Softwerkskammer Regionalgruppe Rhein-Main – Infos folgen in Kürze." />
-
+  <meta
+    name="description"
+    content="Softwerkskammer Rhein-Main: nächstes Treffen am 10. Juni 2026 mit Sebastian Rose und Gregor Trefs."
+  />
   <style>
     :root {
-      color-scheme: light dark;
-      --bg: #0b1220;
-      --card: rgba(255, 255, 255, 0.06);
-      --text: rgba(255, 255, 255, 0.92);
-      --muted: rgba(255, 255, 255, 0.72);
-      --border: rgba(255, 255, 255, 0.12);
-      --accent: #7dd3fc;
+      --bg: #f5f1e8;
+      --bg-accent: #efe4d1;
+      --paper: rgba(255, 252, 246, 0.86);
+      --paper-strong: #fffaf2;
+      --text: #1d2430;
+      --muted: #5d6674;
+      --line: rgba(29, 36, 48, 0.12);
+      --accent: #b85c38;
+      --accent-soft: #e5c4aa;
+      --accent-deep: #7f3419;
+      --shadow: 0 24px 70px rgba(64, 46, 24, 0.14);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --content-width: 1120px;
     }
 
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #f6f7fb;
-        --card: rgba(0, 0, 0, 0.04);
-        --text: rgba(0, 0, 0, 0.88);
-        --muted: rgba(0, 0, 0, 0.62);
-        --border: rgba(0, 0, 0, 0.10);
-        --accent: #0284c7;
-      }
+    * {
+      box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 20% 10%, rgba(125, 211, 252, 0.20), transparent 60%),
-                  radial-gradient(1000px 600px at 80% 20%, rgba(167, 139, 250, 0.16), transparent 55%),
-                  var(--bg);
       color: var(--text);
+      font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(184, 92, 56, 0.16), transparent 32%),
+        radial-gradient(circle at 85% 18%, rgba(127, 52, 25, 0.10), transparent 24%),
+        linear-gradient(180deg, var(--bg) 0%, #f9f7f1 52%, #f2ede2 100%);
+      min-height: 100vh;
     }
 
-    .wrap {
-      min-height: 100%;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-
-    .card {
-      width: min(720px, 100%);
-      border: 1px solid var(--border);
-      background: var(--card);
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: 0 16px 50px rgba(0,0,0,0.22);
-      backdrop-filter: blur(8px);
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(125, 211, 252, 0.12);
-    }
-
-    h1 {
-      margin: 18px 0 10px 0;
-      font-size: clamp(28px, 3.2vw, 40px);
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-
-    p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .spacer { height: 16px; }
-
-    footer {
-      margin-top: 22px;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-size: 13px;
-      color: var(--muted);
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6), transparent 82%);
+      opacity: 0.35;
     }
 
     a {
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px dashed var(--border);
+      color: inherit;
     }
-    a:hover { border-bottom-style: solid; }
+
+    .page {
+      width: min(var(--content-width), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+      position: relative;
+    }
+
+    .hero,
+    .panel,
+    .speaker-card {
+      backdrop-filter: blur(14px);
+      background: var(--paper);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -32% auto;
+      width: 300px;
+      height: 300px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(184, 92, 56, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(127, 52, 25, 0.14);
+      color: var(--accent-deep);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(184, 92, 56, 0.12);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.85fr);
+      gap: 28px;
+      align-items: end;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      line-height: 0.95;
+      max-width: 10ch;
+    }
+
+    .hero-copy p,
+    .panel p,
+    .speaker-copy p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .hero-copy .lead {
+      margin-top: 18px;
+      max-width: 60ch;
+      font-size: 1.06rem;
+    }
+
+    .hero-notes {
+      display: grid;
+      gap: 12px;
+      align-self: stretch;
+    }
+
+    .hero-note {
+      background: rgba(255, 250, 242, 0.88);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
+    }
+
+    .hero-note .label {
+      margin: 0 0 8px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-deep);
+    }
+
+    .hero-note strong {
+      display: block;
+      font-size: 1.12rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .hero-actions {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button,
+    .link-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 13px 18px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .button:hover,
+    .link-chip:hover {
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #fff9f4;
+      border: 1px solid var(--accent);
+    }
+
+    .button.secondary,
+    .link-chip {
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .stack {
+      display: grid;
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .panel {
+      border-radius: var(--radius-xl);
+      padding: 28px;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .panel h2 {
+      font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    }
+
+    .tag {
+      background: rgba(184, 92, 56, 0.10);
+      color: var(--accent-deep);
+      border: 1px solid rgba(127, 52, 25, 0.12);
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+      gap: 24px;
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .meta-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 15px 16px;
+      background: rgba(255, 255, 255, 0.64);
+    }
+
+    .meta-item span {
+      display: block;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .meta-item strong {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .abstract {
+      display: grid;
+      gap: 14px;
+    }
+
+    .abstract p strong {
+      color: var(--text);
+    }
+
+    .speakers {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(280px, 420px));
+      justify-content: center;
+      gap: 22px;
+    }
+
+    .speaker-card {
+      width: 100%;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .speaker-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: linear-gradient(180deg, var(--bg-accent), #ddd5c8);
+    }
+
+    .speaker-copy {
+      padding: 22px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .speaker-copy h3 {
+      font-size: 1.7rem;
+    }
+
+    .speaker-copy .role {
+      color: var(--accent-deep);
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .speaker-copy p {
+      font-size: 0.98rem;
+    }
+
+    .speaker-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .info-box {
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid var(--line);
+    }
+
+    .info-box h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      margin-top: 18px;
+      padding: 10px 4px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .event-grid,
+      .speakers,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(var(--content-width), calc(100% - 20px));
+        padding-top: 14px;
+        padding-bottom: 36px;
+      }
+
+      .hero,
+      .panel,
+      .speaker-copy {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero,
+      .panel {
+        border-radius: 22px;
+      }
+
+      .panel-head {
+        margin-bottom: 14px;
+      }
+    }
   </style>
 </head>
-
 <body>
-  <main class="wrap">
-    <section class="card" role="region" aria-label="Softwerkskammer Rhein-Main Hinweis">
-      <div class="badge">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Softwerkskammer – Regionalgruppe Rhein-Main</span>
+  <main class="page">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Softwerkskammer Rhein-Main</div>
+          <h1 id="page-title">Wir treffen uns wieder.</h1>
+          <p class="lead">
+            Die Softwerkskammer Rhein-Main bringt Menschen zusammen, die sich für gute Software,
+            saubere Zusammenarbeit und praktisches Lernen interessieren. Das nächste Treffen steht
+            fest, und diesmal bringen Sebastian Rose und Gregor Trefs ein hands-on Format mit.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#event">Zum nächsten Event</a>
+            <a class="button secondary" href="mailto:falk@jug-da.de">Kontakt aufnehmen</a>
+          </div>
+        </div>
+
+        <div class="hero-notes" aria-label="Kompakte Veranstaltungsdaten">
+          <div class="hero-note">
+            <p class="label">Termin</p>
+            <strong>Mittwoch, 10.06.2026</strong>
+            <p>18:30 bis 21:00 Uhr</p>
+          </div>
+          <div class="hero-note">
+            <p class="label">Format</p>
+            <strong>Coding Dojo</strong>
+            <p>Test Driven Design vs. Property Based Testing mit Agentic AI</p>
+          </div>
+          <div class="hero-note">
+            <p class="label">Sprecher</p>
+            <strong>Sebastian Rose und Gregor Trefs</strong>
+            <p>mit langjähriger Erfahrung in der Software-Crafts-Community</p>
+          </div>
+        </div>
       </div>
-
-      <h1>Wir sind bald wieder da.</h1>
-      <p>
-        Hier wird es in Zukunft wieder Infos zu der Regionalgruppe <strong>Softwerkskammer Rhein-Main</strong> geben –
-        z.&nbsp;B. zu Treffen, Formaten und Terminen.
-      </p>
-
-      <div class="spacer"></div>
-
-      <p>
-        Bis dahin: Danke fürs Vorbeischauen.
-      </p>
-
-      <footer>
-        <span>Stand: <time datetime="2026-03-03">03.03.2026</time></span>
-        <span>Kontakt: <a href="mailto:falk@jug-da.de">falk(at)jug-da.de</a></span>
-      </footer>
     </section>
+
+    <div class="stack">
+      <section class="panel" id="event" aria-labelledby="event-title">
+        <div class="panel-head">
+          <h2 id="event-title">Nächstes Event</h2>
+          <div class="tag">Ankündigung Juni 2026</div>
+        </div>
+
+        <div class="event-grid">
+          <div class="abstract">
+            <h3>Coding Dojo: Agentic AI - Test Driven Design vs. Property Based Testing</h3>
+            <p>
+              In diesem zweistündigen Coding Dojo im Code-Retreat-Style bearbeiten die
+              Teilnehmenden eine gemeinsame Aufgabenstellung in zwei Sessions: zunächst mit Test
+              Driven Development und anschließend mit Property Based Testing.
+            </p>
+            <p>
+              Beide Perspektiven dienen dazu, ein Gefühl dafür zu entwickeln, wie ein Agentic AI
+              Tool beim Finden von Tests und Eigenschaften unterstützen kann und wie sich die
+              Zusammenarbeit zwischen Mensch und Modell gestaltet.
+            </p>
+            <p>
+              Im Mittelpunkt steht die Selbsterfahrung im Umgang mit LLMs: Wie verändert sich das
+              eigene Denken über Spezifikation, Testdesign und Umsetzung, wenn ein Agent in den
+              Prozess eingebunden wird? Welche Art von Unterstützung entsteht tatsächlich, wo
+              bleiben klare Grenzen spürbar, und wie lässt sich der verfügbare Kontext so
+              einsetzen, dass das Modell nachvollziehbar und möglichst stabil arbeitet?
+            </p>
+            <p><strong>Teilnahmevoraussetzung:</strong> Motivation zum aktiven Ausprobieren und Mitmachen.</p>
+          </div>
+
+          <aside class="meta-list" aria-label="Veranstaltungsdetails">
+            <div class="meta-item">
+              <span>Wann</span>
+              <strong>Mittwoch, 10. Juni 2026<br />18:30 bis 21:00 Uhr</strong>
+            </div>
+            <div class="meta-item">
+              <span>Wer</span>
+              <strong>Sebastian Rose<br />Gregor Trefs</strong>
+            </div>
+            <div class="meta-item">
+              <span>Was mitbringen</span>
+              <strong>Eigenen Laptop und Lust auf aktives Mitmachen</strong>
+            </div>
+            <div class="meta-item">
+              <span>Gemeinsame Veranstaltung</span>
+              <strong>zusammen mit Tech&amp;Talk Frankfurt</strong>
+              <p style="margin-top: 8px;">
+                Die Anmeldung erfolgt über die Meetup-Seite von Tech&amp;Talk Frankfurt.
+              </p>
+              <div class="speaker-links">
+                <a
+                  class="link-chip"
+                  href="https://www.meetup.com/tech-n-talk-frankfurt/"
+                  target="_blank"
+                  rel="noreferrer"
+                >Tech&amp;Talk Frankfurt</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="speaker-title">
+        <div class="panel-head">
+          <h2 id="speaker-title">Sprecher</h2>
+          <div class="tag">Unsere Referenten</div>
+        </div>
+
+        <div class="speakers">
+          <article class="speaker-card">
+            <img src="images/sebastian-rose.png" alt="Porträt von Sebastian Rose" />
+            <div class="speaker-copy">
+              <div class="role">Speaker</div>
+              <h3>Sebastian Rose</h3>
+              <p>
+                Sebastian arbeitet als Systems Engineer beim Statistischen Bundesamt. Er hat viel
+                Erfahrung als Softwareentwickler in Teams, die nach Agilität streben und dabei
+                Produkte und Dienste möglichst Ende zu Ende verantworten dürfen.
+              </p>
+              <p>
+                Dabei setzt er gerne Open Source Software auf der JVM ein. Autorisierung ist eines
+                seiner Schwerpunktthemen. Die Softwarebranche ist seit fast 20 Jahren sein
+                Arbeitsfeld.
+              </p>
+              <p>
+                Er hilft mit bei den Organisatoren der Java User Group Darmstadt und lebt mit
+                seiner Frau und zwei Kindern in der Nähe von Wiesbaden.
+              </p>
+              <div class="speaker-links">
+                <a
+                  class="link-chip"
+                  href="https://www.linkedin.com/in/sebastian-rose-9b0617ab/"
+                  target="_blank"
+                  rel="noreferrer"
+                >LinkedIn</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="speaker-card">
+            <img src="images/gregor-trefs.png" alt="Porträt von Gregor Trefs" />
+            <div class="speaker-copy">
+              <div class="role">Programmkomitee JavaLand 2026</div>
+              <h3>Gregor Trefs</h3>
+              <p>
+                Gregor ist einer der Organisatoren der Java User Group in Mannheim und Software
+                Development Manager. Sein erstes Programm war ein in BASIC geschriebenes Text
+                Adventure.
+              </p>
+              <p>
+                Inzwischen schreibt er ab und zu ein paar Artikel in seinem Blog und hält Vorträge
+                und Workshops.
+              </p>
+              <div class="speaker-links">
+                <a
+                  class="link-chip"
+                  href="https://gtrefs.github.io/"
+                  target="_blank"
+                  rel="noreferrer"
+                >Blog</a>
+                <a
+                  class="link-chip"
+                  href="https://twitter.com/gtrefs"
+                  target="_blank"
+                  rel="noreferrer"
+                >X / Twitter</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="about-title">
+        <div class="panel-head">
+          <h2 id="about-title">Zur Gruppe</h2>
+          <div class="tag">Über uns</div>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-box">
+            <h3>Was ist die Softwerkskammer?</h3>
+            <p>
+              Wir treffen uns alle paar Monate im Rhein-Main-Gebiet zu Vorträgen, Workshops und
+              praktischen Formaten rund um Softwareentwicklung, Architektur, Testing und
+              Zusammenarbeit.
+            </p>
+            <p style="margin-top: 12px;">
+              Organisatoren: Torsten Wiederkehr (ING) und Falk Sippach (embarc)
+            </p>
+          </div>
+          <div class="info-box">
+            <h3>Wie geht es weiter?</h3>
+            <p>
+              Diese Seite ist noch im Aufbau. Wir planen weitere Events für 2026. Aktuell gibt es
+              keine Mailingliste, da evaluieren wir noch das Tooling. Bei Interesse könnt Ihr Euch
+              aber über <a href="mailto:falk@jug-da.de">falk@jug-da.de</a> an dem informellen
+              Newsletter anmelden, der Euch auf die nächsten Events hinweisen wird.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <span>Stand: <time datetime="2026-05-20">20.05.2026</time></span>
+      <span>Kontakt: <a href="mailto:falk@jug-da.de">falk@jug-da.de</a></span>
+    </footer>
   </main>
 </body>
 </html>

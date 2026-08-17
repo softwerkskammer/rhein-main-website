@@ -6,7 +6,7 @@
   <title>Softwerkskammer Rhein-Main</title>
   <meta
     name="description"
-    content="Softwerkskammer Rhein-Main: nächstes Treffen am 10. Juni 2026 mit Sebastian Rose und Gregor Trefs."
+    content="Softwerkskammer Rhein-Main: nächstes Treffen am 27. August 2026 mit Tom Asel in Frankfurt am Main."
   />
   <style>
     :root {
@@ -298,11 +298,27 @@
       color: var(--text);
     }
 
+    .agenda-list {
+      margin: 0;
+      padding-left: 1.2rem;
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+    }
+
+    .agenda-list strong {
+      color: var(--text);
+    }
+
     .speakers {
       display: grid;
       grid-template-columns: repeat(2, minmax(280px, 420px));
       justify-content: center;
       gap: 22px;
+    }
+
+    .speakers.single {
+      grid-template-columns: minmax(280px, 420px);
     }
 
     .speaker-card {
@@ -423,11 +439,12 @@
           <h1 id="page-title">Wir treffen uns wieder.</h1>
           <p class="lead">
             Die Softwerkskammer Rhein-Main bringt Menschen zusammen, die sich für gute Software,
-            saubere Zusammenarbeit und praktisches Lernen interessieren. Das nächste Treffen steht
-            fest, und diesmal bringen Sebastian Rose und Gregor Trefs ein hands-on Format mit.
+            saubere Zusammenarbeit und praktisches Lernen interessieren. Das nächste Treffen findet
+            am Donnerstag, 27. August 2026 statt. Gemeinsam mit dem iSAQB Community Meetup
+            Rhein-Main gibt es diesmal eine interaktive Coding-Kata mit Tom Asel.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#event">Zum nächsten Event</a>
+            <a class="button primary" href="#next-event">Zum nächsten Event</a>
             <a class="button secondary" href="mailto:falk@jug-da.de">Kontakt aufnehmen</a>
           </div>
         </div>
@@ -435,28 +452,143 @@
         <div class="hero-notes" aria-label="Kompakte Veranstaltungsdaten">
           <div class="hero-note">
             <p class="label">Termin</p>
-            <strong>Mittwoch, 10.06.2026</strong>
-            <p>18:30 bis 21:00 Uhr</p>
+            <strong>Donnerstag, 27.08.2026</strong>
+            <p>17:00 bis 20:00 Uhr</p>
           </div>
           <div class="hero-note">
             <p class="label">Format</p>
-            <strong>Coding Dojo</strong>
-            <p>Test Driven Design vs. Property Based Testing mit Agentic AI</p>
+            <strong>Interaktive Coding-Kata</strong>
+            <p>Elephant Carpaccio als hands-on Meetup in 2er-Teams</p>
           </div>
           <div class="hero-note">
-            <p class="label">Sprecher</p>
-            <strong>Sebastian Rose und Gregor Trefs</strong>
-            <p>mit langjähriger Erfahrung in der Software-Crafts-Community</p>
+            <p class="label">Ort</p>
+            <strong>Accso</strong>
+            <p>Rahmhofstraße 2, 60431 Frankfurt am Main</p>
+          </div>
+          <div class="hero-note">
+            <p class="label">Gemeinsam mit</p>
+            <strong>iSAQB Community Meetup Rhein-Main</strong>
+            <p>mit Tom Asel als Referent</p>
           </div>
         </div>
       </div>
     </section>
 
     <div class="stack">
-      <section class="panel" id="event" aria-labelledby="event-title">
+      <section class="panel" id="next-event" aria-labelledby="event-title">
         <div class="panel-head">
           <h2 id="event-title">Nächstes Event</h2>
-          <div class="tag">Ankündigung Juni 2026</div>
+          <div class="tag">Ankündigung August 2026</div>
+        </div>
+
+        <div class="event-grid">
+          <div class="abstract">
+            <h3>Interaktive Coding-Kata "Elephant Carpaccio"</h3>
+            <p>
+              Bitte beachten: Das Meetup wird als Kata interaktiv durchgeführt. Bitte bringt für
+              die Teilnahme einen Laptop mit. Das Meetup startet diesmal früher, schon um 17 Uhr,
+              damit wir für die Kata ausreichend Zeit haben.
+            </p>
+            <p>
+              Wir sorgen für ausreichend Pausen und für das leibliche Wohl. Elephant Carpaccio ist
+              eine interaktive Coding Kata, bei der es darum geht, große Anforderungen und komplexe
+              Probleme in kleine, wertstiftende Schritte zu zerlegen.
+            </p>
+            <p>
+              In kurzen Iterationen entwickelt ihr in 2er-Teams Stück für Stück eine lauffähige
+              Anwendung – mit echtem Feedback nach jeder Runde. So wird unmittelbar erlebbar, wie
+              aus einem großen Problem kleine, nutzbare Inkremente entstehen.
+            </p>
+            <p>
+              Im Mittelpunkt stehen zentrale Fragen moderner Softwareentwicklung: Wie klein ist
+              klein genug? Was liefert echten Mehrwert? Und wie schafft man es, schneller zu lernen
+              und besser zu liefern? Ein hands-on Meetup für alle, die inkrementelles Arbeiten
+              nicht nur verstehen, sondern erleben wollen.
+            </p>
+            <p><strong>Agenda</strong></p>
+            <ul class="agenda-list">
+              <li><strong>17:00 Uhr</strong> – Ankommen, Begrüßung, Kennenlernen</li>
+              <li>
+                <strong>17:15 bis ca. 20:00 Uhr</strong> – Kata in mehreren Runden, mit Pausen
+                sowie Drinks und Fingerfood von Accso
+              </li>
+            </ul>
+          </div>
+
+          <aside class="meta-list" aria-label="Veranstaltungsdetails">
+            <div class="meta-item">
+              <span>Wann</span>
+              <strong>Donnerstag, 27. August 2026<br />17:00 bis 20:00 Uhr</strong>
+            </div>
+            <div class="meta-item">
+              <span>Wer</span>
+              <strong>Tom Asel</strong>
+            </div>
+            <div class="meta-item">
+              <span>Wo</span>
+              <strong>Accso - Accelerated Solutions GmbH<br />Rahmhofstraße 2 · Frankfurt am Main, 60431</strong>
+            </div>
+            <div class="meta-item">
+              <span>Gemeinsame Veranstaltung</span>
+              <strong>zusammen mit iSAQB Community Meetup Rhein-Main</strong>
+              <p style="margin-top: 8px;">
+                Die Anmeldung ist entweder über Meetup.com oder über die treff.tech-Seite
+                möglich.
+              </p>
+              <div class="speaker-links">
+                <a
+                  class="link-chip"
+                  href="https://www.meetup.com/de-de/isaqb-software-architektur-meetup-gruppe-fur-interessierte/events/315394119/?eventOrigin=group_events_list"
+                  target="_blank"
+                  rel="noreferrer"
+                >Anmeldung auf Meetup</a>
+                <a
+                  class="link-chip"
+                  href="https://treff.tech/events/b2a782fe-90f9-43bd-9f15-0972deb5292c"
+                  target="_blank"
+                  rel="noreferrer"
+                >Anmeldung auf treff.tech</a>
+              </div>
+            </div>
+            <div class="meta-item">
+              <span>Was mitbringen</span>
+              <strong>Eigenen Laptop und Lust auf aktives Mitmachen</strong>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="next-speaker-title">
+        <div class="panel-head">
+          <h2 id="next-speaker-title">Referent des nächsten Events</h2>
+          <div class="tag">Unsere Referenten</div>
+        </div>
+
+        <div class="speakers single">
+          <article class="speaker-card">
+            <img src="images/tom-asel.jpg" alt="Porträt von Tom Asel" />
+            <div class="speaker-copy">
+              <div class="role">Speaker, Moderator, Facilitator, Instructor</div>
+              <h3>Tom Asel</h3>
+              <p>
+                Tom Asel ist Architekt, Trainer, Team-Coach und Speaker mit über 20 Jahren
+                Erfahrung. Er unterstützt Teams dabei, Architekturarbeit in komplexen,
+                soziotechnischen Systemen wirksam zu gestalten.
+              </p>
+              <p>
+                Sein Fokus liegt auf DDD, Continuous Architecture und kollaborativen Methoden wie
+                EventStorming. Als aktives Mitglied des iSAQB bringt er seine Erfahrung in die
+                Weiterentwicklung von Architekturthemen ein.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="previous-event-title">
+        <div class="panel-head">
+          <h2 id="previous-event-title">Vergangenes Event</h2>
+          <div class="tag">Juni 2026</div>
         </div>
 
         <div class="event-grid">
@@ -482,7 +614,7 @@
             <p><strong>Teilnahmevoraussetzung:</strong> Motivation zum aktiven Ausprobieren und Mitmachen.</p>
           </div>
 
-          <aside class="meta-list" aria-label="Veranstaltungsdetails">
+          <aside class="meta-list" aria-label="Details zum Juni-Event">
             <div class="meta-item">
               <span>Wann</span>
               <strong>Mittwoch, 10. Juni 2026<br />18:30 bis 21:00 Uhr</strong>
@@ -499,12 +631,12 @@
               <span>Gemeinsame Veranstaltung</span>
               <strong>zusammen mit Tech&amp;Talk Frankfurt</strong>
               <p style="margin-top: 8px;">
-                Die Anmeldung erfolgt über die Meetup-Seite von Tech&amp;Talk Frankfurt.
+                Die Anmeldung erfolgte über die Meetup-Seite von Tech&amp;Talk Frankfurt.
               </p>
               <div class="speaker-links">
                 <a
                   class="link-chip"
-                  href="https://www.meetup.com/tech-n-talk-frankfurt/events/314962113/"
+                  href="https://www.meetup.com/tech-n-talk-frankfurt/"
                   target="_blank"
                   rel="noreferrer"
                 >Tech&amp;Talk Frankfurt</a>
@@ -514,9 +646,9 @@
         </div>
       </section>
 
-      <section class="panel" aria-labelledby="speaker-title">
+      <section class="panel" aria-labelledby="june-speaker-title">
         <div class="panel-head">
-          <h2 id="speaker-title">Sprecher</h2>
+          <h2 id="june-speaker-title">Referenten des Juni-Events</h2>
           <div class="tag">Unsere Referenten</div>
         </div>
 
@@ -616,7 +748,7 @@
     </div>
 
     <footer class="footer">
-      <span>Stand: <time datetime="2026-05-20">20.05.2026</time></span>
+      <span>Stand: <time datetime="2026-08-17">17.08.2026</time></span>
       <span>Kontakt: <a href="mailto:falk@jug-da.de">falk@jug-da.de</a></span>
     </footer>
   </main>
